@@ -13,8 +13,8 @@ import java.nio.charset.StandardCharsets;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.openqa.selenium.logging.LogType.BROWSER;
 
-
 public class Attach {
+
     @Attachment(value = "{attachName}", type = "text/plain")
     public static String attachAsText(String attachName, String message) {
         return message;
@@ -48,6 +48,7 @@ public class Attach {
         String videoUrl = "https://selenoid.autotests.cloud/video/" + sessionId + ".mp4";
 
         try {
+            System.out.println(videoUrl);
             return new URL(videoUrl);
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -59,4 +60,3 @@ public class Attach {
         return ((RemoteWebDriver) getWebDriver()).getSessionId().toString();
     }
 }
-
